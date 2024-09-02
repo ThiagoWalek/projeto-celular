@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>!Celular</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/aplicativo-movel.png" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <section class="pergunta">
+            <h1>!Celular</h1>
+            <p>Esse é um projeto que consiste em mostrar quanto tempo as pessoas gastam em seus celulares.</p>
+            <section class="formulario">
+                <h2>Formulario</h2>
+                <label for="nome">Digite seu nome </label><br>
+                <input type="text" name="nome" id="nome"><br>
+                <label for="horas">Horas diárias no celular </label><br>
+                <input type="text" name="horas" id="horas"><br>
+                <input id="submit" type="submit" value="Enviar" onclick="enviar()">
+            </section>
+        </section>
+
+        <section id="resposta">
+            <h1>Informações Obtidas:</h1>
+            <h2 id="nome_r">Nome: hhhh</h2>
+            <h2 id="horas_r">Horas diarias de uso: </h2>
+            <h2 id="horas_m">Horas mensais de uso:</h2>
+            <h2 id="horas_a">Horas anuais de uso:</h2>
+            <h2 id="dias_a">Dias usados em um ano de uso:</h2>
+            <h2 id="porcentage">Quantos porcento de sua vida média:</h2>
+        </section>
+    </main>
+    <script>
+        function enviar() {
+            var main = document.querySelector('main')
+            main.style.height = "143vh"
+            var section_resposta = document.getElementById('resposta')
+            section_resposta.style.display = "flex"
+            section_resposta.style.marginTop = "40px"
+            var horas_m = document.getElementById('horas_m')
+            var horas_a = document.getElementById('horas_a')
+            var nome_r = document.getElementById('nome_r')
+            var horas_r = document.getElementById('horas_r')
+            var dias_a = document.getElementById('dias_a')
+            var porcentage = document.getElementById('porcentage')
+            var nome = document.getElementById('nome').value
+            var horas = document.getElementById('horas').value
+            var media_vida = 77
+            var horas_mes = horas*30
+            var horas_ano = horas_mes*12
+            var dias_ano = horas_ano/24
+            var porcentagem = (dias_ano*100)/259
+            nome_r.innerText = `Nome: ${nome}`
+            horas_r.innerText = `Horas diarias de uso: ${horas}`
+            horas_m.innerText = `Horas mensais de uso: ${horas_mes}`
+            horas_a.innerText = `Horas anuais de uso: ${horas_ano}`
+            dias_a.innerText = `Dias usados em um ano de uso: ${dias_ano}`
+            porcentage.innerText = `Quantos porcento de sua vida média: ${porcentagem.toFixed(1)}%`
+        }
+    </script>
+</body>
+</html>
